@@ -2,13 +2,12 @@
 #define POINT_H
 
 struct point {
+	// X position
 	short x;
+	// Y position
 	short y;
+	// Number of possible moves from that point
 	short possible_moves;
 };
-
-struct point_sort {
-	bool operator() (point i, point j) { return (i.possible_moves < j.possible_moves);}
-} sort_please;
 
 #endif

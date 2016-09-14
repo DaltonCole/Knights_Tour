@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 #include "point.h"
 using namespace std;
 
@@ -16,6 +17,7 @@ class board {
 		vector<point> moves();
 		short get_last();
 		vector<point> best_move(vector<point> moves);
+		void normalize(short x, short y);
 
 		board & operator =(const board & rhs);
 

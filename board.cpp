@@ -19,11 +19,12 @@ board::board() {
 board::board(short n) {
 	boardSize = n;
 	vector<short> subVector;
+
+	for(int i = 0; i < boardSize; i++) {
+		subVector.push_back(0);
+	}
 	for(int i = 0; i < boardSize; i++) {
 		b.push_back(subVector);
-		for(int j = 0; j < boardSize; j++) {
-			b[i][j] = 0;
-		}
 	}
 	last = 1;
 	previous_x = boardSize/2;
@@ -45,16 +46,11 @@ void board::print() {
 	for(int i = 0; i < boardSize; i++) {
 		cout << "| ";
 		for(int j = 0; j < boardSize; j++) {
-			if(b[j][i] < 10) {
-				cout << b[j][i] << "  | ";
-			}
-			else {
-				cout << b[j][i] << " | ";
-			}
+			cout << setw(3) << b[j][i] << " | ";
 		}
 		cout << endl;
 		for(int j = 0; j < boardSize; j++) {
-			cout << "-----";
+			cout << "------";
 		}
 		cout << endl;
 	}
@@ -197,4 +193,20 @@ vector<point> board::best_move(vector<point> moves) {
 	previous_y = remember_y;
 
 	return moves;
+}
+
+void board::normalize(short x, short y) {
+	for(int max = 0; max < 64; max++) {
+		if(b[x][y] == 1) {
+			break;
+		} else {
+			for(int i = 0; i < boardSize; i++) {
+				for(int j = 0; j < boardSize; j++) {
+					b[j][i] = (b[j][i] % (boardSize * boardSize)) + 1;
+				}
+			}
+		}
+	}
+
+	return;
 }
