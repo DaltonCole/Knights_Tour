@@ -24,8 +24,9 @@ This program accepts either 0, 1, 2, or 3 arguments.
 
 ## Example
 Output looks better not in markdown
-
+```
 ./a.out 8 0 0
+```
 
 ```
 |   1 |   4 |  63 |  34 |  45 |   6 |  55 |  32 | 
@@ -45,9 +46,4 @@ Output looks better not in markdown
 |  26 |  59 |  22 |  17 |  28 |  13 |  10 |  15 | 
 ------------------------------------------------
 Program finished in: 0.001252 seconds.
-```
-
-```
-No language indicated, so no syntax highlighting. 
-But let's throw in a <b>tag</b>.
 ```
