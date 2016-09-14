@@ -1,0 +1,106 @@
+\documentclass{article}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage[linguistics]{forest}
+
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\title{Homework Assignment 2}
+\author{Dalton Cole}
+\date{September 15th, 2016}
+
+\begin{document}
+\maketitle
+
+\pagebreak
+
+\begin{center}
+Algorithm Description
+\end{center}
+
+\paragraph{}
+My algorithm for the Knight's Tour problem uses Depth First Search (DFS) using Warnsdorf's rule as a heuristic. Depth first search
+uses a stack that pushes possible moves onto the stack in order from lowest priority to highest. Priority is determined using
+Warnsdorf's rule. The next move is decided by how many moves the next knight could take. The next knight that can take the fewest
+future moves is added onto the stack last.
+
+\begin{center}
+Pseudo Code
+\end{center}
+
+\begin{algorithm}
+\caption{Pseudo Code}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{Knight's Tour}{}
+\State board = initial board \
+\State stack.push(board) \
+\State Solved = false \
+\While{Solved = false}
+	\State board $\gets$ stack.pop() \
+	\If{board is Solved} \
+		\State Quit Loop \
+	\EndIf
+	\State states $\gets$ board.moves() \
+	\State orderedStates $\gets$ states.order() \
+	\State stack.push(orderedStates) \
+\EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{center}
+Complexity
+\end{center}
+
+\paragraph{}
+The worst possible case for this algorithm is $O(8^{n^2-1})$. This is because, for every possible node, 8 moves have to be checked. Since I am using DFS, $n^2-1$ nodes may be generated, where n is the size of the board.
+
+
+\begin{forest}
+  [1
+    [2
+     [3
+       [4]
+     ]
+     [3
+       [4
+         [5]
+       ]
+     ]
+    ]
+    [2
+      [3
+        [4
+        ]
+      ]
+      [3
+        [4
+          [5
+            [6]
+          ]
+          [5
+            [6
+              [7]
+            ]
+            [6
+              [7
+                [8]
+              ]
+              [7
+                [8]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
+
+\end{document}
