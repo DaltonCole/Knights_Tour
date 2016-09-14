@@ -12,6 +12,7 @@ This program solves the Knight's Tour problem for a n by n board where n is even
 
 This program accepts either 0, 1, 2, or 3 arguments.
 
+* If 0 arguments are specified, then the initial position will be 5 5 on an 8 by 8 board
 * If 1 argument is specified, then it is the size of the board
   * Example: a.out 8
     * This will use an 8 by 8 board
