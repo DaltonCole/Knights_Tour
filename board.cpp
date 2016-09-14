@@ -11,8 +11,8 @@ board::board() {
 		b.push_back(subVector);
 	}
 	last = 1;
-	previous_x = 0;
-	previous_y = 0;
+	previous_x = boardSize/2;
+	previous_y = boardSize/2;
 	b[previous_x][previous_y] = 1;
 }
 
@@ -26,8 +26,8 @@ board::board(short n) {
 		}
 	}
 	last = 1;
-	previous_x = 0;
-	previous_y = 0;
+	previous_x = boardSize/2;
+	previous_y = boardSize/2;
 	b[previous_x][previous_y] = 1;
 }
 
@@ -80,7 +80,7 @@ vector<point> board::moves() {
 	short y = previous_y - 2;
 
 	if(x >= 0 && y >= 0) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -92,7 +92,7 @@ vector<point> board::moves() {
 	y = previous_y - 2;
 
 	if(x < boardSize && y >= 0) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -104,7 +104,7 @@ vector<point> board::moves() {
 	y = previous_y + 2;
 
 	if(x >= 0 && y < boardSize) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -116,7 +116,7 @@ vector<point> board::moves() {
 	y = previous_y + 2;
 
 	if(x < boardSize && y < boardSize) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -128,7 +128,7 @@ vector<point> board::moves() {
 	y = previous_y - 1;
 
 	if(x >= 0 && y >= 0) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -140,7 +140,7 @@ vector<point> board::moves() {
 	y = previous_y + 1;
 
 	if(x >= 0 && y < boardSize) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -152,7 +152,7 @@ vector<point> board::moves() {
 	y = previous_y - 1;
 
 	if(x < boardSize && y >= 0) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);
@@ -164,7 +164,7 @@ vector<point> board::moves() {
 	y = previous_y + 1;
 
 	if(x < boardSize && y < boardSize) {
-		if(b[x][y] == 0 || (b[x][y] == 1 && last == 64)) {
+		if(b[x][y] == 0 || (b[x][y] == 1 && last == (boardSize * boardSize))) {
 			p.x = x;
 			p.y = y;
 			moves.push_back(p);

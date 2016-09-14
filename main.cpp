@@ -31,6 +31,17 @@ int main() {
 		current_board = depthSearch.top();
 		depthSearch.pop();
 
+		//cout << depthSearch.size() << endl;
+		//cout << current_board.get_last() << endl;
+		//current_board.print();
+		
+		/*
+		if(current_board.get_last() > 40) {
+			current_board.print();
+			cout << current_board.get_last() << endl;
+		}
+		*/
+
 		// Calculates moves
 		points = current_board.moves();
 
@@ -45,7 +56,7 @@ int main() {
 			// Update new board with next knight's spot
 			new_board.update(points[i].x, points[i].y, new_board.get_last() + 1);
 			// If 65 moves have been completed (including initial placement), exit loop
-			if(new_board.get_last() == 65) {
+			if(new_board.get_last() == 8*8 + 1) {
 				new_board.update(points[i].x, points[i].y, 1);
 				get_out = true;
 				break;
@@ -57,7 +68,7 @@ int main() {
 			break;
 		}
 	}
-
+cout << endl;
 	if(get_out == true) {
 		new_board.print();
 	} else {
