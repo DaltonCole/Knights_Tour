@@ -23,6 +23,7 @@ This program accepts either 0, 1, 2, or 3 arguments.
     * The knight will start on spot 0 0 on an 8 by 8 board
 
 ## Example
+Output looks better not in markdown
 
 ./a.out 8 0 0
 
