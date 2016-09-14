@@ -92,9 +92,17 @@ int main(int argc, char* argv[]) {
 	if(get_out == true) {
 		// If user wants the starting position as a certain point, set it
 		if(argc == 3) {
-			new_board.normalize(atoi(argv[1]), atoi(argv[2]));
+			if(atoi(argv[1]) < board_size && atoi(argv[2]) < board_size) {
+				new_board.normalize(atoi(argv[1]), atoi(argv[2]));
+			} else {
+				cout << "Board cannot be normalized" << endl;
+			}
 		} else if (argc == 4) {
-			new_board.normalize(atoi(argv[2]), atoi(argv[3]));
+			if(atoi(argv[2]) < board_size && atoi(argv[3]) < board_size) {
+				new_board.normalize(atoi(argv[2]), atoi(argv[3]));
+			} else {
+				cout << "Board cannot be normalized" << endl;
+			}
 		} 
 
 		new_board.print();
@@ -103,9 +111,17 @@ int main(int argc, char* argv[]) {
 
 		// If user wants the starting position as a certain point, set it
 		if(argc == 3) {
-			current_board.normalize(atoi(argv[1]), atoi(argv[2]));
+			if(atoi(argv[1]) < board_size && atoi(argv[2]) < board_size) {
+				current_board.normalize(atoi(argv[1]), atoi(argv[2]));
+			} else {
+				cout << "Board cannot be normalized" << endl;
+			}
 		} else if (argc == 4) {
-			current_board.normalize(atoi(argv[2]), atoi(argv[3]));
+			if(atoi(argv[2]) < board_size && atoi(argv[3]) < board_size) {
+				current_board.normalize(atoi(argv[2]), atoi(argv[3]));
+			} else {
+				cout << "Board cannot be normalized" << endl;
+			}
 		} 
 
 		current_board.print();
